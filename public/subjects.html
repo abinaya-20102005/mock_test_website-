@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Select Subject</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="hero">
+  <div class="main-container">
+
+    <h1 class="title">Select a Subject</h1>
+
+    <div class="grid">
+
+      <div class="box">
+        <h3>Mathematics</h3>
+        <button onclick="go('maths')">Start Test</button>
+      </div>
+
+      <div class="box">
+        <h3>Science</h3>
+        <button onclick="go('science')">Start Test</button>
+      </div>
+
+      <div class="box">
+        <h3>Electronics (ECE)</h3>
+        <button onclick="go('ece')">Start Test</button>
+      </div>
+
+      <div class="box">
+        <h3>Mechanical</h3>
+        <button onclick="go('mechanical')">Start Test</button>
+      </div>
+
+      <div class="box">
+        <h3>Electrical (EEE)</h3>
+        <button onclick="go('eee')">Start Test</button>
+      </div>
+
+      <div class="box">
+        <h3>Computer Science (CSE)</h3>
+        <button onclick="go('cse')">Start Test</button>
+      </div>
+
+      <div class="box">
+        <h3>Artificial Intelligence (AI)</h3>
+        <button onclick="go('ai')">Start Test</button>
+      </div>
+
+      <div class="box">
+        <h3>Machine Learning (ML)</h3>
+        <button onclick="go('ml')">Start Test</button>
+      </div>
+
+      <div class="box">
+        <h3>Quantitative Aptitude</h3>
+        <button onclick="go('aptitude')">Start Test</button>
+      </div>
+
+      <!-- ✅ NEW ADDED -->
+      <div class="box">
+        <h3>Logical Reasoning</h3>
+        <button onclick="go('logical')">Start Test</button>
+      </div>
+
+      <div class="box">
+        <h3>Verbal Ability</h3>
+        <button onclick="go('verbal')">Start Test</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+function go(subject) {
+  window.location.href = "instructions.html?subject=" + subject;
+}
+</script>
+
+</body>
+</html>

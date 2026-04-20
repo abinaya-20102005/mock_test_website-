@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GATE/ESE Mock Test</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="hero">
+  <div class="card quiz-box">
+
+    <h2 id="title">GATE Mock Test</h2>
+    <hr>
+
+    <div id="questionBox">
+        <p>Loading questions...</p>
+    </div>
+
+    <div id="optionsBox" style="text-align: left; margin: 20px 0;"></div>
+
+    <button id="nextBtn" onclick="nextQuestion()">Next</button>
+
+  </div>
+</div>
+
+<script>
+// VARIABLES
+let questions = [];
+let current = 0;
+let score = 0;
+
+// GET SUBJECT FROM URL
+const params = new URLSearchParams(window.location.search);
+const subject = params.get("subject") || "maths"; // Default to maths if none found
+
+console.log("Fetching questions for:", subject);
+
+// FETCH QUESTIONS FROM SERVER (localhost:3000)
+fetch("http://localhost:3000/questions/" + subject)
+  .then(res => {
+    if (!res.ok) throw new Error("Server response was not ok");
+    return res.json();
+  })
+  .then(data => {
+    console.log("DATA RECEIVED:", data);
+    questions = data;
+    if (questions.length > 0) {
+        showQuestion();
+    } else {
+        document.getElementById("questionBox").innerHTML = "<h3>No questions found for this subject.</h3>";
+    }
+  })
+  .catch(err => {
+    console.error("Fetch error:", err);
+    document.getElementById("questionBox").innerHTML = "<h3 style='color:red;'>Error connecting to server.</h3>";
+  });
+
+// SHOW QUESTION
+function showQuestion() {
+  let q = questions[current];
+
+  // Update the Question text
+  document.getElementById("questionBox").innerHTML = `<h3>Q${current + 1}. ${q.question}</h3>`;
+
+  // Update the Options (FIXED SYNTAX HERE)
+  let html = "";
+  q.options.forEach((opt, i) => {
+    // We use the text of the option as the value to compare with q.answer
+    html += `
+        <div style="margin: 10px 0;">
+            <input type="radio" name="opt" id="opt${i}" value="${opt}"> 
+            <label for="opt${i}">${opt}</label>
+        </div>`;
+  });
+
+  document.getElementById("optionsBox").innerHTML = html;
+}
+
+// NEXT QUESTION
+function nextQuestion() {
+    const selected = document.querySelector('input[name="opt"]:checked');
+
+    if (!selected) {
+        alert("Please select an option");
+        return;
+    }
+
+    // Convert the selected value (index) to a Number to match your JSON
+    const selectedIndex = parseInt(selected.value);
+    const correctIndex = questions[current].answer;
+
+    if (selectedIndex === correctIndex) {
+        score++;
+    }
+
+    current++;
+
+    if (current < questions.length) {
+        showQuestion();
+    } else {
+        finishQuiz();
+    }
+}
+
+// FINISH
+function finishQuiz() {
+  const finalScore = `<h2>Quiz Completed!</h2>
+                      <p>Your Final Score: <strong>${score} / ${questions.length}</strong></p>
+                      <button onclick="window.location.href='dashboard.html'">Back to Dashboard</button>`;
+  
+  document.querySelector(".quiz-box").innerHTML = finalScore;
+}
+</script>
+
+</body>
+</html>

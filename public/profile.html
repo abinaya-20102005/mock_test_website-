@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      /* Soft professional gradient background */
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-card {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 350px;
+    }
+
+    .profile-card h2 {
+      color: #333;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #764ba2;
+      padding-bottom: 10px;
+    }
+
+    .info-group {
+      margin: 15px 0;
+      text-align: left;
+    }
+
+    .info-group label {
+      font-weight: 600;
+      color: #764ba2;
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    .info-group p {
+      margin: 5px 0;
+      color: #555;
+      font-size: 1.1rem;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 25px;
+      text-decoration: none;
+      color: white;
+      background: #764ba2;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #5a368a;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-card">
+    <h2>User Profile</h2>
+
+    <div class="info-group">
+      <label>Full Name</label>
+      <p id="userName">Abinaya Saravan</p>
+    </div>
+
+    <div class="info-group">
+      <label>Email Address</label>
+      <p id="userEmail">sabinayaa20@gmail.com</p>
+    </div>
+
+    <a href="dashboard.html" class="back-btn">Back to Dashboard</a>
+  </div>
+
+  <script>
+    // Since we saved the name during login, let's make it dynamic!
+    const savedName = localStorage.getItem("userName");
+    if (savedName) {
+        document.getElementById("userName").innerText = savedName;
+    }
+  </script>
+
+</body>
+</html>

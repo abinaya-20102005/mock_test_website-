@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+
+  <!-- Eye icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f") no-repeat center center/cover;
+      height: 100vh;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 12px;
+      width: 320px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .password-box {
+      position: relative;
+    }
+
+    .password-box input {
+      padding-right: 40px;
+    }
+
+    .password-box span {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="hero">
+  <div class="container">
+
+    <h2>Login</h2>
+
+    <input id="email" placeholder="Email">
+
+    <!-- Password with eye icon -->
+    <div class="password-box">
+  <input id="password" type="password" placeholder="Password">
+  <span onclick="togglePassword()">👁</span>
+  </div>
+
+    <button onclick="login()">Login</button>
+
+    <p>Don't have account? <a href="register.html">Register</a></p>
+
+  </div>
+  </div>
+
+<script>
+function togglePassword() {
+    const passInput = document.getElementById("password");
+    passInput.type = passInput.type === "password" ? "text" : "password";
+}
+
+function login() {
+    const emailValue = document.getElementById("email").value;
+    const passwordValue = document.getElementById("password").value;
+
+    console.log("Attempting login with:", emailValue);
+
+    fetch("http://localhost:3000/login", { 
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        // We explicitly name the keys here to be safe
+        body: JSON.stringify({ 
+            email: emailValue, 
+            password: passwordValue 
+        })
+    })
+    .then(res => {
+        console.log("Response status:", res.status);
+        if (!res.ok) throw new Error("Server responded with error");
+        return res.json();
+    })
+    .then(data => {
+        console.log("Data received:", data);
+        if (data.success) {
+            localStorage.setItem("userName", data.name); 
+            alert("Login successful");
+            window.location.href = "dashboard.html";
+        } else {
+            alert("Invalid credentials. Check your email/password.");
+        }
+    })
+    .catch(err => {
+        console.error("Fetch Error:", err);
+        alert("Could not connect to server. Check if the terminal shows 'Server running'.");
+    });
+}
+</script>
+
+
+
+</body>
+</html>

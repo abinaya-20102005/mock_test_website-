@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam Instructions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            /* Using the library background from your screenshot */
+            background: url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f") no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* THE BOX (CARD) */
+        .card {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 50px 60px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            
+            /* WIDE WIDTH: This ensures sentences stay in one line */
+            width: 950px; 
+            max-width: 95%; 
+            
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        h2 {
+            color: #1e3c72;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .instruction-list {
+            text-align: left;
+            color: #333;
+            margin-bottom: 50px;
+            padding: 0;
+            list-style: none; /* Cleaner look */
+        }
+
+        .instruction-list li {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            border-left: 5px solid #007bff; /* Stylish blue accent on the left */
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            
+            /* THE FIX: Prevents text from wrapping to the next line */
+            white-space: nowrap; 
+        }
+
+        /* The "Start Test" Button */
+        .btn-start {
+            background: #28a745; /* Success Green */
+            color: white;
+            border: none;
+            padding: 18px 80px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3);
+            text-transform: uppercase;
+        }
+
+        .btn-start:hover {
+            background: #218838;
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(40, 167, 69, 0.4);
+        }
+
+        /* Responsive Fix: If screen is too small, allow wrapping so it doesn't break */
+        @media (max-width: 1000px) {
+            .instruction-list li {
+                white-space: normal;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Exam Instructions</h2>
+
+        <ul class="instruction-list">
+            <li><strong>1. Navigation:</strong> You can only move to the next question after selecting an option.</li>
+            <li><strong>2. Duration:</strong> The timer starts as soon as you click "Start Test" and cannot be paused.</li>
+            <li><strong>3. Integrity:</strong> Do not refresh the page or switch tabs, as this may reset your progress.</li>
+            <li><strong>4. Evaluation:</strong> Each correct answer awards 1 point. There is no penalty for incorrect attempts.</li>
+            <li><strong>5. Submission:</strong> The test will automatically submit when the timer hits zero.</li>
+        </ul>
+
+      
+    </div>
+
+    
+
+</body>
+</html>

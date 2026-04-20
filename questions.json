@@ -1,0 +1,42 @@
+{
+  "maths": [
+    { "question": "1 + 1 = ?", "options": ["1", "2", "3", "4"], "answer": 1 },
+    { "question": "5 × 2 = ?", "options": ["10", "12", "8", "15"], "answer": 0 }
+  ],
+  "science": [
+    { "question": "Water formula?", "options": ["H2O", "CO2", "O2", "NaCl"], "answer": 0 },
+    { "question": "Sun is a?", "options": ["Planet", "Star", "Moon", "Gas"], "answer": 1 }
+  ],
+  "ece": [
+    { "question": "Unit of resistance?", "options": ["Volt", "Ampere", "Ohm", "Watt"], "answer": 2 },
+    { "question": "Semiconductor example?", "options": ["Copper", "Silicon", "Iron", "Gold"], "answer": 1 }
+  ],
+  "mechanical": [
+    { "question": "SI unit of force?", "options": ["Joule", "Newton", "Watt", "Pascal"], "answer": 1 },
+    { "question": "Boiling point of water?", "options": ["90°C", "100°C", "80°C", "120°C"], "answer": 1 }
+  ],
+  "cse": [
+    { "question": "HTML stands for?", "options": ["Hyper Text Markup Language", "High Text Machine Language", "Hyper Tool ML", "None"], "answer": 0 },
+    { "question": "Which is a programming language?", "options": ["HTML", "CSS", "JavaScript", "XML"], "answer": 2 }
+  ],
+  "eee": [
+    { "question": "Which law states that the induced EMF is proportional to the rate of change of magnetic flux?", "options": ["Ohm's Law", "Faraday's Law", "Kirchhoff's Law", "Coulomb's Law"], "answer": 1 },
+    { "question": "What is the unit of Electrical Power?", "options": ["Volt", "Ampere", "Watt", "Ohm"], "answer": 2 }
+  ],
+  "ai": [
+    { "question": "Who is known as the father of Artificial Intelligence?", "options": ["Alan Turing", "John McCarthy", "Elon Musk", "Bill Gates"], "answer": 1 },
+    { "question": "Which search algorithm uses a heuristic function to find the shortest path?", "options": ["BFS", "DFS", "A* Search", "Linear Search"], "answer": 2 }
+  ],
+  "ml": [
+    { "question": "In Supervised Learning, what does the model learn from?", "options": ["Unlabeled Data", "Labeled Data", "Random Patterns", "No Data"], "answer": 1 },
+    { "question": "Which of the following is a classification algorithm?", "options": ["Linear Regression", "K-Means", "Logistic Regression", "PCA"], "answer": 2 }
+  ],
+  "logical": [
+    { "question": "2, 4, 8, 16, ?", "options": ["18", "24", "32", "20"], "answer": 2 },
+    { "question": "Odd one out?", "options": ["Dog", "Cat", "Cow", "Car"], "answer": 3 }
+  ],
+  "verbal": [
+    { "question": "Synonym of Happy?", "options": ["Sad", "Joyful", "Angry", "Tired"], "answer": 1 },
+    { "question": "Antonym of Big?", "options": ["Small", "Large", "Huge", "Wide"], "answer": 0 }
+  ]
+}

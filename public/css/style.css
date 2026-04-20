@@ -1,0 +1,188 @@
+/* Reset */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Background (ALL pages except dashboard) */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("https://images.unsplash.com/photo-1523240795612-9a054b0db644");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =========================
+   CARD (Login / Instructions / Quiz)
+========================= */
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.card h2 {
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.card input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+/* Button */
+.card button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #4A90E2;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background: #357ABD;
+}
+
+/* =========================
+   PASSWORD EYE FIX
+========================= */
+.password-box {
+  position: relative;
+  width: 100%;
+}
+
+.password-box input {
+  width: 100%;
+  padding: 12px;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+
+.password-box span {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* =========================
+   SUBJECT PAGE
+========================= */
+
+/* Main container */
+.main-container {
+  text-align: center;
+  width: 90%;
+}
+
+/* Title */
+.title {
+  color: white;
+  margin-bottom: 30px;
+}
+
+/* Grid layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Subject box */
+.box {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+}
+
+/* Button inside box */
+.box button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: none;
+  background: #4A90E2;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.box button:hover {
+  background: #357ABD;
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz-box {
+    min-height: 300px; /* Ensures the box doesn't collapse while loading */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#questionBox {
+  margin: 20px 0;
+  text-align: left;
+}
+
+#questionBox div {
+  margin: 10px 0;
+}
+
+/* Timer */
+.timer {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 8px;
+  background: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  background: #4A90E2;
+}
+
+/* =========================
+   LINKS
+========================= */
+a {
+  color: #4A90E2;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
